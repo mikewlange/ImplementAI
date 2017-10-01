@@ -1,9 +1,8 @@
 <!-- Launch file for ROSBuzz -->
 
 <launch>
-		<node name="SLAM_node" pkg="ORB_SLAM2" type="Mono" respawn="false" output="screen" args="/home/vivek/ROS_WS/src/ardrone_testbed-master/ORB_SLAM2/Vocabulary/ORBvoc.txt /home/vivek/ROS_WS/src/ardrone_testbed-master/ORB_SLAM2/Examples/Monocular/KITTI00-02.yaml">	
+		<node name="SLAM_node" pkg="ORB_SLAM2" type="Mono" respawn="false" output="screen" args="/home/jun/projects/catkin_yolo2/src/ardrone_testbed/ORB_SLAM2/Vocabulary/ORBvoc.txt /home/jun/projects/catkin_yolo2/src/ardrone_testbed/ORB_SLAM2/Examples/Monocular/KITTI00-02.yaml">	
 		</node>
 		
-		<node name="camera_bridge" pkg="image_transport_tutorial" type="my_publisher" respawn="false" output="screen">	
-		</node>		
+		<include file="$(find darknet_ros)/launch/darknet_ros.launch" />
 </launch>

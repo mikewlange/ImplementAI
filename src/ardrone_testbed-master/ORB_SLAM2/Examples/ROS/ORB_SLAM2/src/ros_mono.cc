@@ -55,7 +55,7 @@ public:
           pc.header.frame_id = "/first_keyframe_cam";
           pose_out_.header.frame_id = "odom";
      }
-     void GrabImage ( const sensor_msgs::ImageConstPtr &msg );
+     void GrabImage ( const sensor_msgs::CompressedImageConstPtr &msg );
      geometry_msgs::TransformStamped toTFStamped ( tf2::Transform in , ros::Time t, string frame_id, string child_frame_id );
      tf::Transform cvMatToTF ( cv::Mat Tcw );
 
@@ -94,7 +94,8 @@ int main ( int argc, char **argv )
      ImageGrabber igb ( &SLAM );
 
      ros::NodeHandle nodeHandler;
-     ros::Subscriber sub = nodeHandler.subscribe ( "/camera/image_raw", 1, &ImageGrabber::GrabImage, &igb );
+     ros::Subscriber sub = nodeHandler.subscribe ( "/duangduang/camera_node/image/compressed", 1, &ImageGrabber::GrabImage, &igb );
+     //ros::Subscriber sub = nodeHandler.subscribe ( "/r2duck2/camera_node/image/compressed", 1, &ImageGrabber::GrabImage, &igb );
      ros::Publisher pc_pub = nodeHandler.advertise<sensor_msgs::PointCloud> ( "/orb/point_cloud", 2 );
      ros::Publisher pose_pub = nodeHandler.advertise<geometry_msgs::PoseWithCovarianceStamped> ( "/orb/pose_unscaled", 2 );
 
@@ -118,13 +119,15 @@ int main ( int argc, char **argv )
 }
 
 //callback
-void ImageGrabber::GrabImage ( const sensor_msgs::ImageConstPtr &msg )
+void ImageGrabber::GrabImage ( const sensor_msgs::CompressedImageConstPtr &msg )
 {
 
      // Copy the ros image message to cv::Mat.
-     cv_bridge::CvImageConstPtr cv_ptr;
+     //cv_bridge::CvImageConstPtr cv_ptr;
+     cv::Mat image;
      try {
-          cv_ptr = cv_bridge::toCvShare ( msg );
+          //cv_ptr = cv_bridge::toCvShare ( msg );
+          image = cv::imdecode(cv::Mat(msg->data),1);
      } catch ( cv_bridge::Exception &e ) {
           ROS_ERROR ( "cv_bridge exception: %s", e.what() );
           return;
@@ -134,7 +137,7 @@ void ImageGrabber::GrabImage ( const sensor_msgs::ImageConstPtr &msg )
      // Proccess the given monocular frame
      // Input images: RGB (CV_8UC3) or grayscale (CV_8U). RGB is converted to grayscale.
      // Returns the camera pose (empty if tracking fails).
-     cv::Mat Tcw = mpSLAM->TrackMonocular ( cv_ptr->image, cv_ptr->header.stamp.toSec() );
+     cv::Mat Tcw = mpSLAM->TrackMonocular ( image, msg->header.stamp.toSec() );
      ros::Time t = msg->header.stamp;
 
 
