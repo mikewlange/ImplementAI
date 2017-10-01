@@ -1,0 +1,89 @@
+{
+    "NMAS_PRFX_SESSION_ID": "fd5f2193-1070-4433-ac4f-4baca67bf179",
+    "NMAS_PRFX_TRANSACTION_ID": "1",
+    "audio_transfer_info": {
+        "audio_id": 1,
+        "end_time": "20170930115227124",
+        "nss_server": "nss-server:1",
+        "packages": [
+            {
+                "bytes": 640,
+                "time": "20170930115222759"
+            },
+            {
+                "bytes": 640,
+                "time": "20170930115226990"
+            }
+        ],
+        "start_time": "20170930115222645"
+    },
+    "cadence_regulatable_result": "completeRecognition",
+    "final_response": 1,
+    "message": "query_response",
+    "nlu_interpretation_results": {
+        "final_response": 1,
+        "payload": {
+            "diagnostic_info": {
+                "adk_dialog_manager_status": "undefined",
+                "application": "NMDPTRIAL_jing_yang_93_hotmail_com20170929205329",
+                "context_tag": "M7834_A2944_1",
+                "ext_map_time": "0",
+                "fieldId": "dm_main",
+                "int_map_time": "0",
+                "nlps_host": "nlpsdy-pool-1-3hssq:8636",
+                "nlps_ip": "172.17.70.5",
+                "nlps_nlu_type": "quicknludynamic",
+                "nlps_profile": "QUICKNLUDYN",
+                "nlps_profile_package": "QUICKNLU",
+                "nlps_profile_package_version": "nlps(z):6.3.200.6-B1333",
+                "nlps_version": "nlps(z):6.3.200.6-B1333;Version: nlps-base-Zeppelin-6.3.200-B00-GMT20170411043814;",
+                "nlu_annotator": "urn:analysisEngineDescription:quicknlu?serverURL=http%3A%2F%2Flocalhost%3A8088%2Fserver",
+                "nlu_component_flow": "[Input:TextProcJSON] [NLUlib|C-maxwell-r$Rev$.f20170316.0321] [Flow|GramURI:/opt/nuance/ncs/nlps-uima-as/datapacks/nlps-nlu/nlps-QUICKNLU/8646//8646/NMDPTRIAL_jing_yang_93_hotmail_com20170929205329_M7834_A2944_1_eng-USA/38086e1c-a63a-11e7-a4b3-b921388e7dde/UIMA//trainedInnerGrammar.filter.gram] [Input:TextProcJSON] [NLUlib|C-maxwell-r$Rev$.f20170316.0321] [Flow|GramURI:/opt/nuance/ncs/nlps-uima-as/datapacks/nlps-nlu/nlps-QUICKNLU/8646//8646/NMDPTRIAL_jing_yang_93_hotmail_com20170929205329_M7834_A2944_1_eng-USA/38086e1c-a63a-11e7-a4b3-b921388e7dde/UIMA//trainedInnerGrammar.filter.gram]",
+                "nlu_language": "eng-USA",
+                "nlu_use_literal_annotator": "0",
+                "nlu_version": "[Version: nlps-eng-USA-QUICKNLU;Label;7834_NLPS_9;Model;9988a124-a5f8-11e7-a4b3-9dbe6583464b;Build;38086e1c-a63a-11e7-a4b3-b921388e7dde;QnluTrain;1.16.9;CreatedAt;2017-09-30T23:50:54.000Z]",
+                "nmaid": "NMDPTRIAL_jing_yang_93_hotmail_com20170929205329",
+                "qws_project_id": "d4a8b73675f50162c46cd4a57dadf1358d8ca6f9e4a5563b",
+                "third_party_delay": "1",
+                "timing": {
+                    "finalRespSentDelay": "98",
+                    "intermediateRespSentDelay": "9"
+                }
+            },
+            "interpretations": [
+                {
+                    "action": {
+                        "intent": {
+                            "confidence": 1.0,
+                            "value": "whereIs"
+                        }
+                    },
+                    "concepts": {
+                        "location": [
+                            {
+                                "literal": "emergency room",
+                                "ranges": [
+                                    [
+                                        13,
+                                        27
+                                    ]
+                                ],
+                                "value": "er1"
+                            }
+                        ]
+                    },
+                    "literal": "Where is the emergency room"
+                }
+            ],
+            "type": "nlu-1.0"
+        },
+        "payload_format": "nlu-base",
+        "payload_version": "1.0",
+        "status": "success"
+    },
+    "prompt": "",
+    "result_format": "nlu_interpretation_results",
+    "result_type": "NDSP_ASR_APP_CMD",
+    "status_code": 0,
+    "transaction_id": 1
+}
