@@ -1,4 +1,4 @@
-AI meets Duckiebots license information
+AI meets Duckiebots project license information
 ------------------------------
 
 * The code contained in this repository, including Python (*py), 
